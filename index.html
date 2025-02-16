@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino Games</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/games.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="tab active" data-page="games">🎮 Games</div>
+    <div class="tab" data-page="stats">📊 Stats</div>
+    <div class="tab" data-page="account">👤 Account</div>
+</div>
+
+<div id="content">
+    <div id="games" class="page show">
+        <h2>Select a Game</h2>
+        <div class="game-list">
+            <div class="game-card" data-game="blackjack">
+                <img src="assets/blackjack.jpg" alt="Blackjack">
+                <p>Blackjack</p>
+            </div>
+            <div class="game-card coming-soon">
+                <img src="assets/dice.jpg" alt="Dice">
+                <p>Dice (Coming Soon)</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="stats" class="page">
+        <h2>Statistics</h2>
+        <p>stats</p>
+    </div>
+
+    <div id="account" class="page">
+        <h2>Account</h2>
+        <p>Account settings and details...</p>
+    </div>
+
+    <div id="blackjack-game" class="page">
+        <button class="back-button">⬅ Back to Games</button>
+        <div class="game-container">
+            <h2>Blackjack</h2>
+            <div id="dealer-area">
+                <h3>Dealer's Hand</h3>
+                <div id="dealer-hand" class="hand"></div>
+                <p id="dealer-score">Dealer's Score: ?</p>
+            </div>
+            <div id="player-area">
+                <h3>Your Hand</h3>
+                <div id="player-hand" class="hand"></div>
+                <p id="player-score">Your Score: ?</p>
+            </div>
+            <p id="message"></p>
+            <div class="buttons">
+                <button id="new-game">New Game</button>
+                <button id="hit">Hit</button>
+                <button id="stand">Stand</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="scripts/games/deckManager.js"></script>
+<script src="scripts/games/blackjack.js"></script>
+<script src="scripts/navigation.js"></script>
+</body>
+</html>
