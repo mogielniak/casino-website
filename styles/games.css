@@ -5,6 +5,17 @@
     padding: 20px;
 }
 
+.game-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(30, 30, 30, 0.9);
+    border-radius: 8px;
+    border: 1px solid #FF4444;
+    position: relative;
+    min-height: 400px;
+}
+
 .game-card {
     background: #2a2a2a;
     border: 1px solid #FF4444;
@@ -52,6 +63,7 @@
     font-weight: bold;
     box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
     border: 2px solid white;
+    flex-shrink: 0;
 }
 
 .card.red {
@@ -74,14 +86,14 @@
     border: 2px solid #CC0000;
 }
 
-.buttons {
+.game-buttons {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
-.buttons button {
+.game-buttons button {
     background: #FF4444;
     border: none;
     padding: 10px 20px;
@@ -91,10 +103,8 @@
     transition: background 0.2s;
 }
 
-.buttons button:hover,
-.back-button:hover {
+.game-buttons button:hover {
     background: #CC0000;
-    /*filter: brightness(75%);*/
 }
 
 #message {
@@ -102,4 +112,7 @@
     font-size: 1.2rem;
     margin: 20px 0;
     color: #FFD700;
+    height: 24px;
+    min-height: 24px;
+    overflow: hidden;
 }

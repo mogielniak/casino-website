@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('click', function() {
             if(this.classList.contains('coming-soon')) return;
             const game = this.dataset.game;
-            loadGame(game);
+            showPage(game);
+            showBetModal();
         });
     });
 
@@ -26,6 +27,13 @@ function showPage(pageId) {
         page.classList.remove('show');
     });
 
+    const backButton = document.querySelector('.back-button');
+    if (['games', 'stats', 'account'].includes(pageId)) {
+        backButton.classList.remove('visible');
+    } else {
+        backButton.classList.add('visible');
+    }
+
     const activePage = document.getElementById(`${pageId}${pageId === 'blackjack' ? '-game' : ''}`);
     activePage.classList.add('show');
 
@@ -35,12 +43,7 @@ function showPage(pageId) {
     });
 }
 
-function loadGame(game) {
-    if(game === 'blackjack') {
-        showPage('blackjack');
-        setTimeout(() => {
-            window.blackjack.init();
-            window.blackjack.newGame();
-        }, 50);
-    }
+function showBetModal(){
+    BettingSystem.reset();
+    document.getElementById('bet-modal').style.display = 'block';
 }

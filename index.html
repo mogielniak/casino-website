@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/games.css">
+    <link rel="stylesheet" href="styles/balance.css">
 </head>
 <body>
 
@@ -14,6 +15,23 @@
     <div class="tab active" data-page="games">🎮 Games</div>
     <div class="tab" data-page="stats">📊 Stats</div>
     <div class="tab" data-page="account">👤 Account</div>
+    <div class="balance-display">
+        Credits: <span id="balance">1000</span>
+    </div>
+    <div class="back-button">⬅ Back</div>
+</div>
+
+<div id="bet-modal" class="modal">
+    <div class="modal-content">
+        <h3>Place Your Bet</h3>
+        <div class="chip-selector">
+            <button class="chip" data-amount="10">10</button>
+            <button class="chip" data-amount="50">50</button>
+            <button class="chip" data-amount="100">100</button>
+            <input type="number" id="custom-bet" placeholder="Custom" min="1">
+        </div>
+        <button id="place-bet">Confirm Bet</button>
+    </div>
 </div>
 
 <div id="content">
@@ -56,7 +74,7 @@
                 <p id="player-score">Your Score: ?</p>
             </div>
             <p id="message"></p>
-            <div class="buttons">
+            <div class="game-buttons">
                 <button id="new-game">New Game</button>
                 <button id="hit">Hit</button>
                 <button id="stand">Stand</button>
@@ -68,5 +86,6 @@
 <script src="scripts/games/deckManager.js"></script>
 <script src="scripts/games/blackjack.js"></script>
 <script src="scripts/navigation.js"></script>
+<script src="scripts/bettingSystem.js"></script>
 </body>
 </html>

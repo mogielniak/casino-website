@@ -5,9 +5,15 @@ const Blackjack = {
         this.bindEvents();
         deckManager.createDeck();
         deckManager.shuffleDeck();
+
+        window.addEventListener('bet-placed', (e) => {
+            this.currentBet = e.detail.amount;
+            this.newGame();
+        })
     },
 
     bindEvents() {
+        document.getElementById('new-game').addEventListener('click', () => showBetModal());
         document.getElementById('new-game').addEventListener('click', () => this.newGame());
         document.getElementById('hit').addEventListener('click', () => this.hit());
         document.getElementById('stand').addEventListener('click', () => this.stand());
@@ -82,14 +88,14 @@ const Blackjack = {
 
         if (score > 21) {
             this.gameOver = true;
-            document.getElementById('message').textContent = 'Bust! You lose!';
+            BettingSystem.lose();
+            this.showMessage('Bust! You lose!');
         }
         this.updateDisplay();
     },
 
     stand() {
         if (this.gameOver) return;
-
         this.gameOver = true;
 
         while (this.calculateScore(deckManager.dealerHand) < 17) {
@@ -102,17 +108,42 @@ const Blackjack = {
         this.updateDisplay();
 
         if (playerScore > 21) {
-            document.getElementById('message').textContent = 'You busted! Dealer wins!';
+            BettingSystem.lose();
+            this.showMessage('Bust! You lose!');
         } else if (dealerScore > 21) {
-            document.getElementById('message').textContent = 'Dealer busted! You win!';
+            BettingSystem.win(1);
+            this.showMessage('Dealer busts! You win!');
         } else if (playerScore > dealerScore) {
-            document.getElementById('message').textContent = 'You win!';
+            if (this.isBlackjack(deckManager.playerHand)) {
+                BettingSystem.win(0.5);
+                this.showMessage('Blackjack!')
+            } else {
+                BettingSystem.win(1);
+                this.showMessage('You win!')
+            }
         } else if (dealerScore > playerScore) {
-            document.getElementById('message').textContent = 'Dealer wins!';
+            BettingSystem.lose();
+            this.showMessage('Dealer wins!');
         } else {
-            document.getElementById('message').textContent = 'Push!';
+            BettingSystem.push();
+            this.showMessage('Push!');
         }
+    },
+
+    isBlackjack(hand) {
+        return hand.length === 2 && this.calculateScore(hand) === 21;
+    },
+
+
+    showMessage(text) {
+        const textElement = document.getElementById('message');
+        textElement.textContent = text;
+        textElement.style.color = text.includes('win') ? '#4CAF50' : '#FF4444';
     }
 };
 
 window.blackjack = Blackjack;
+
+document.addEventListener('DOMContentLoaded', () => {
+    Blackjack.init();
+});
