@@ -43,10 +43,11 @@ function initializeBalanceChart() {
 function updateBalanceChart(history) {
     if (!balanceChart) return;
 
-    const startRound = Math.max(1, history.length - 20 + 1);
+    const maxRounds = 20;
+    const startRound = Math.max(0, history.length - maxRounds);
 
-    balanceChart.data.labels = history.slice(-20).map((_, index) => `Round ${startRound + index}`);
-    balanceChart.data.datasets[0].data = history.slice(-20);
+    balanceChart.data.labels = history.slice(startRound).map((_, index) => `Round ${startRound + index}`);
+    balanceChart.data.datasets[0].data = history.slice(startRound);
 
     balanceChart.options.scales.y.Max = Math.max(...history) * 1.1;
 

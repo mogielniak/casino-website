@@ -10,11 +10,13 @@ const BettingSystem = (() => {
         const currentBetElement = document.getElementById('current-bet');
         if (currentBetElement) currentBetElement.textContent = currentBet;
 
-        balanceHistory.push(userBalance);
-        if (balanceHistory.length > 20) balanceHistory.shift();
-        window.dispatchEvent(new CustomEvent('balance-updated', {
-            detail: {balanceHistory}
-        }));
+        if(balanceHistory[balanceHistory.length - 1] !== userBalance) {
+            balanceHistory.push(userBalance);
+            if (balanceHistory.length > 20) balanceHistory.shift();
+            window.dispatchEvent(new CustomEvent('balance-updated', {
+                detail: {balanceHistory}
+            }));
+        }
     };
 
     return {
