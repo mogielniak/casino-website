@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/games.css">
     <link rel="stylesheet" href="styles/balance.css">
+    <link rel="stylesheet" href="styles/chart.css">
 </head>
 <body>
 
@@ -50,8 +51,11 @@
     </div>
 
     <div id="stats" class="page">
-        <h2>Statistics</h2>
-        <p>stats</p>
+        <h2>Stats</h2>
+        <div class="chart-container">
+            <h3>Balance History</h3>
+            <canvas id="balance-chart" width="400" height="200"></canvas>
+        </div>
     </div>
 
     <div id="account" class="page">
@@ -87,5 +91,7 @@
 <script src="scripts/games/blackjack.js"></script>
 <script src="scripts/navigation.js"></script>
 <script src="scripts/bettingSystem.js"></script>
+<script src="scripts/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

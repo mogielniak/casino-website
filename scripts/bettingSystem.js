@@ -1,13 +1,20 @@
 const BettingSystem = (() => {
     let userBalance = 1000;
     let currentBet = 0;
+    let balanceHistory = [userBalance];
 
     const updateDisplay = () => {
         const balanceElement = document.getElementById('balance');
-        if(balanceElement) balanceElement.textContent = userBalance;
+        if (balanceElement) balanceElement.textContent = userBalance;
 
         const currentBetElement = document.getElementById('current-bet');
-        if(currentBetElement) currentBetElement.textContent = currentBet;
+        if (currentBetElement) currentBetElement.textContent = currentBet;
+
+        balanceHistory.push(userBalance);
+        if (balanceHistory.length > 20) balanceHistory.shift();
+        window.dispatchEvent(new CustomEvent('balance-updated', {
+            detail: {balanceHistory}
+        }));
     };
 
     return {
@@ -51,6 +58,7 @@ const BettingSystem = (() => {
         },
 
         win(multiplier = 1) {
+            const winnings = this.currentBet * multiplier;
             userBalance += currentBet * (1 + multiplier);
             currentBet = 0;
             updateDisplay();
@@ -75,7 +83,8 @@ const BettingSystem = (() => {
         },
 
         get balance() { return userBalance },
-        get currentBet() { return currentBet }
+        get currentBet() { return currentBet },
+        get balanceHistory() { return balanceHistory }
     };
 })();
 

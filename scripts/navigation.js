@@ -41,6 +41,14 @@ function showPage(pageId) {
         tab.classList.remove('active');
         if(tab.dataset.page === pageId) tab.classList.add('active');
     });
+
+    if (pageId === 'stats') {
+        if (!balanceChart) {
+            initializeBalanceChart();
+        } else {
+            updateBalanceChart(BettingSystem.balanceHistory);
+        }
+    }
 }
 
 function showBetModal(){

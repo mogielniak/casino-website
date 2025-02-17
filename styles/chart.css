@@ -1,0 +1,12 @@
+.chart-container {
+    margin: 20px;
+    padding: 20px;
+    background: #0F0F0F;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#balance-chart {
+    max-width: 100%;
+    height: auto;
+}
