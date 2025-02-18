@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="styles/games.css">
     <link rel="stylesheet" href="styles/balance.css">
     <link rel="stylesheet" href="styles/chart.css">
+    <link rel="stylesheet" href="styles/info.css">
 </head>
 <body>
 
 <div class="navbar">
     <div class="tab active" data-page="games">🎮 Games</div>
     <div class="tab" data-page="stats">📊 Stats</div>
-    <div class="tab" data-page="account">👤 Account</div>
+    <div class="tab" data-page="info-page">👤 Info</div>
     <div class="balance-display">
         Credits: <span id="balance">1000</span>
     </div>
@@ -58,9 +59,49 @@
         </div>
     </div>
 
-    <div id="account" class="page">
-        <h2>Account</h2>
-        <p>Account settings and details...</p>
+    <div id="info-page" class="page">
+        <div class="info-grid">
+            <div class="info-box warning-box">
+                <div class="warning-header">
+                    <span class="warning-icon">⚠️</span>
+                    <h2>DO NOT GAMBLE</h2>
+                </div>
+                <p class="warning-text">
+                    This is a simulation website for entertainment purposes only.<br>
+                    No real money is involved in any gameplay.<br>
+                    If you or someone you know has a gambling problem, please visit:
+                </p>
+                <a href="https://www.betterhealth.vic.gov.au/health/healthyliving/gambling-how-to-change-your-habits" target="_blank" class="support-link">
+                    Gambling - how to regain control
+                </a>
+            </div>
+
+            <div class="info-box developer-box">
+                <img src="assets/donotgamble.jpg" alt="Casino Logo" class="casino-logo">
+                <h3>About This Project</h3>
+                <p>
+                    If you have any ideas/recommendations, please let me know!<br><br>
+                    Explore the code or contribute on GitHub: <br><br>
+                </p>
+                <a href="https://github.com/mogielniak/casino-website" target="_blank" class="github-link">
+                    <i class="fab fa-github"></i> Click me
+                </a>
+            </div>
+
+            <div class="info-box disclaimer-box">
+                <h4>Project Purpose</h4>
+                <p>
+                    Simulation of casino games (currently just blackjack 😔) designed for learning.<br>
+                    It's intended as a way to understand in-depth game algorithms.
+                </p>
+                <ul>
+                    <li>All games use virtual credits</li>
+                    <li>No real-world value is associated</li>
+                    <li>Player statistics are reset on refresh</li>
+                    <li>For demonstration purposes only</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <div id="blackjack-game" class="page">

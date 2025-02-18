@@ -1,0 +1,118 @@
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 20px;
+    align-items: stretch;
+}
+
+.info-box {
+    flex: 1 1 300px;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.warning-box {
+    background: rgba(255, 68, 68, 0.1);
+    border: 1px solid #FF4444;
+    text-align: center;
+}
+
+.developer-box {
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid #444;
+    text-align: center;
+}
+
+.disclaimer-box {
+    background: rgba(40, 40, 40, 0.9);
+    border-left: 4px solid #FF4444;
+}
+
+.warning-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.warning-icon {
+    font-size: 2.5rem;
+    animation: pulse 2s infinite;
+}
+
+.warning-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #FFD700;
+}
+
+.support-link {
+    display: inline-block;
+    background: #FF4444;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.support-link:hover {
+    background: #CC0000;
+    transform: translateY(-2px);
+}
+
+.casino-logo {
+    width: 150px;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 8px rgba(255, 68, 68, 0.5));
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #333;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.github-link:hover {
+    background: #444;
+    transform: translateY(-2px);
+}
+
+.github-link i {
+    font-size: 1.2rem;
+}
+
+.disclaimer-box h4 {
+    color: #FFD700;
+    margin-bottom: 1rem;
+}
+
+.disclaimer-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.disclaimer-box li {
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}

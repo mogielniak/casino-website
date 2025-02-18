@@ -28,7 +28,7 @@ function showPage(pageId) {
     });
 
     const backButton = document.querySelector('.back-button');
-    if (['games', 'stats', 'account'].includes(pageId)) {
+    if (['games', 'stats', 'info-page'].includes(pageId)) {
         backButton.classList.remove('visible');
     } else {
         backButton.classList.add('visible');
